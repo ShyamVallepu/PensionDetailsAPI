@@ -35,41 +35,41 @@ namespace PensionerDetailUnitTests
             };
         }
 
-        [TestCase("111122223333")]
-        public void PensionerDetailByAadhar_Returns_object(string aadhar)
-        {
+        //[TestCase("111122223333")]
+        //public void PensionerDetailByAadhar_Returns_object(string aadhar)
+        //{
 
-            Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
+        //    Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
 
-            PensionerRepository pro = new PensionerRepository();
+        //    PensionerRepository pro = new PensionerRepository();
 
-            details = pro.GetDetailsCsv();
+        //    details = pro.GetDetailsCsv();
 
-            //mock.Setup(p => p.GetDetailsCsv()).Returns(details);            
+        //    //mock.Setup(p => p.GetDetailsCsv()).Returns(details);            
 
-            PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
+        //    PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
 
-            Assert.IsNotNull(a);
+        //    Assert.IsNotNull(a);
 
-        }
+        //}
 
-        [TestCase("111122823333")]
-        public void PensionerDetailByAadhar_Returns_Null(string aadhar)
-        {
+        //[TestCase("111122823333")]
+        //public void PensionerDetailByAadhar_Returns_Null(string aadhar)
+        //{
 
-            Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
+        //    Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
 
-            //mock.Setup(p => p.GetDetailsCsv()).Returns(details);
+        //    //mock.Setup(p => p.GetDetailsCsv()).Returns(details);
 
-            PensionerRepository pro = new PensionerRepository();
+        //    PensionerRepository pro = new PensionerRepository();
 
-            //details = pro.GetDetailsCsv();
+        //    //details = pro.GetDetailsCsv();
 
-            PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
+        //    PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
 
-            Assert.IsNull(a);
+        //    Assert.IsNull(a);
 
-        }
+        //}
 
         [Test]
         public void GetDetailsCsv_Returns_List()
