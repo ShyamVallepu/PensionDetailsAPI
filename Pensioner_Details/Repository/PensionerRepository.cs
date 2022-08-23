@@ -16,7 +16,9 @@ namespace Pensioner_Details.Repository
         
         public PensionerDetail PensionerDetailByAadhar(string aadhar)
         {
-            List<PensionerDetail> pensionDetails = GetDetailsCsv();
+            //List<PensionerDetail> pensionDetails = GetDetailsCsv();
+            List<PensionerDetail> pensionDetails = new List<PensionerDetail>();
+            pensionDetails = GetDetailsCsv();
             _log4net.Info("Pensioner details invoked by Aadhar Number!");
             return pensionDetails.FirstOrDefault(s => s.AadharNumber == aadhar);
         }
@@ -25,14 +27,13 @@ namespace Pensioner_Details.Repository
         {
             _log4net.Info("Data is read from CSV file");  // Logging Implemented
             List<PensionerDetail> pensionerdetail = new List<PensionerDetail>();
+            string line;
             try
             {
-                //string csvConn = configuration.GetValue<string>("MySettings:CsvConnection");  // Initializing the csvConn  for the File path
-                //string csvConn = "details.csv";
-                //using (StreamReader sr = new StreamReader(@"C:\Users\Asad\Desktop\IMPORTANT\Pension-Management-Portal-master(Code8)\Pensioner_Details\details.csv"))
+                
                 using (StreamReader sr = new StreamReader(@".\details.csv"))
                 {
-                    string line;
+                    //string line;
                     while ((line = sr.ReadLine()) != null)
                     {
                         string[] values = line.Split(',');

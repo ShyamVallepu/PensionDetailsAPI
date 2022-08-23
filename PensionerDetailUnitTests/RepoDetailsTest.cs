@@ -35,41 +35,41 @@ namespace PensionerDetailUnitTests
             };
         }
 
-        //[TestCase("111122223333")]
-        //public void PensionerDetailByAadhar_Returns_object(string aadhar)
-        //{
-           
-        //    Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
+        [TestCase("111122223333")]
+        public void PensionerDetailByAadhar_Returns_object(string aadhar)
+        {
 
-        //    PensionerRepository pro = new PensionerRepository();
+            Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
 
-        //    details = pro.GetDetailsCsv();
+            PensionerRepository pro = new PensionerRepository();
 
-        //    //mock.Setup(p => p.GetDetailsCsv()).Returns(details);            
+            details = pro.GetDetailsCsv();
 
-        //    PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
+            //mock.Setup(p => p.GetDetailsCsv()).Returns(details);            
 
-        //    Assert.IsNotNull(a);
-            
-        //}
+            PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
 
-        //[TestCase("111122823333")]
-        //public void PensionerDetailByAadhar_Returns_Null(string aadhar)
-        //{
+            Assert.IsNotNull(a);
 
-        //    Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
+        }
 
-        //    //mock.Setup(p => p.GetDetailsCsv()).Returns(details);
+        [TestCase("111122823333")]
+        public void PensionerDetailByAadhar_Returns_Null(string aadhar)
+        {
 
-        //    PensionerRepository pro = new PensionerRepository();
+            Mock<IPensionerdetail> mock = new Mock<IPensionerdetail>();
 
-        //    //details = pro.GetDetailsCsv();
+            //mock.Setup(p => p.GetDetailsCsv()).Returns(details);
 
-        //    PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
+            PensionerRepository pro = new PensionerRepository();
 
-        //    Assert.IsNull(a);
+            //details = pro.GetDetailsCsv();
 
-        //}
+            PensionerDetail a = pro.PensionerDetailByAadhar(aadhar);
+
+            Assert.IsNull(a);
+
+        }
 
         [Test]
         public void GetDetailsCsv_Returns_List()
