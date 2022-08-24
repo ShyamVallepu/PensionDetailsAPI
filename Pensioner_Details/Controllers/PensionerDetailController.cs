@@ -24,7 +24,14 @@ namespace Pensioner_Details.Controllers
         {
             detail = new DetailsProvider();
             PensionerDetail pensioner = detail.GetDetailsByAadhar(aadhar);
-            return Ok(pensioner);
+            if (pensioner==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(pensioner);
+            }
         }
 
 
