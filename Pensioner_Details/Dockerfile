@@ -8,7 +8,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-sac2016 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk AS build
 WORKDIR /src
 COPY ["Pensioner_Details.csproj", ""]
 RUN dotnet restore "./Pensioner_Details.csproj"
