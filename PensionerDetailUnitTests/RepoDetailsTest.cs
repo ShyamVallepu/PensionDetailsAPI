@@ -1,5 +1,3 @@
-using Castle.Core.Internal;
-using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
 using Pensioner_Details;
