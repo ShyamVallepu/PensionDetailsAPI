@@ -16,7 +16,7 @@ spec:
     spec:
       containers: 
         - name: pensiondetailservice
-          image: PensionDetailACR.azurecr.io/pensiondetailapiimage:latest
+          image: pensiondetailacr.azurecr.io/pensiondetailapiimage:latest
           ports: 
             - containerPort: 8080
       imagePullSecrets: 
