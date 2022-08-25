@@ -1,20 +1,22 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY ["Pensioner_Details.csproj", "."]
+RUN dotnet restore "./Pensioner_Details.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "Pensioner_Details.csproj" -c Release -o /app/build
 
-COPY *.csproj ./
-RUN dotnet restore
-COPY . ./
+FROM build AS publish
+RUN dotnet publish "Pensioner_Details.csproj" -c Release -o /app/publish
 
-
-RUN dotnet publish -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM base AS final
 WORKDIR /app
-COPY --from=build-env /app/out .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Pensioner_Details.dll"]
