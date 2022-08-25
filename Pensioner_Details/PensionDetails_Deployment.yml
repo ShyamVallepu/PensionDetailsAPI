@@ -1,0 +1,36 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: pensiondetailservice-deployment
+  labels: 
+    app: PensionDetailService
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: PensionDetailService
+  template:
+    metadata:
+      labels:
+        app: PensionDetailService
+    spec:
+      containers: 
+        - name: pensiondetailservice
+          image: PensionDetailACR.azurecr.io/pensiondetailapiimage:latest
+          ports: 
+            - containerPort: 8080
+      imagePullSecrets: 
+        - name: pensiondetailsvcsecret
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: pensiondetailservicesvc
+spec:
+  type: LoadBalancer
+  ports: 
+    - port: 80
+  selector:
+    app: PensionDetailService
