@@ -3,7 +3,7 @@
   **Description**
       
       This microservice is responsible for Provides information about the registered pensioner detail i.e., 
-      Pensioner name, PAN, bank name, bank account number, bank type – private or public
+      Pensioner name,DOB,Salary,Allowances,pension type PAN, bank name, bank account number, bank type – private or public
     
    **Steps and Action**
    
